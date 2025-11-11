@@ -135,16 +135,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // If user allowed extra candle, let them add freely
     else if (userAllowedExtraCandle) {
       const rect = cake.getBoundingClientRect();
-      const left = event.clientX - rect.left;
-      const top = event.clientY - rect.top;
-      addCandle(left, top);
+      const cakeRect = cake.getBoundingClientRect();
+      const left = event.clientX - cakeRect.left;
+      const top = event.clientY - cakeRect.top;
+      
+      // Ensure candle stays within bounds
+      const boundedLeft = Math.max(0, Math.min(left, cakeRect.width));
+      const boundedTop = Math.max(-20, Math.min(top, cakeRect.height - 20));
+      
+      addCandle(boundedLeft, boundedTop);
     }
     // Normal case - under limit
     else {
-      const rect = cake.getBoundingClientRect();
-      const left = event.clientX - rect.left;
-      const top = event.clientY - rect.top;
-      addCandle(left, top);
+      const cakeRect = cake.getBoundingClientRect();
+      const left = event.clientX - cakeRect.left;
+      const top = event.clientY - cakeRect.top;
+      
+      // Ensure candle stays within bounds
+      const boundedLeft = Math.max(0, Math.min(left, cakeRect.width));
+      const boundedTop = Math.max(-20, Math.min(top, cakeRect.height - 20));
+      
+      addCandle(boundedLeft, boundedTop);
     }
   });
 
