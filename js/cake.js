@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       icon: 'success',
       showCancelButton: true,
       confirmButtonText: 'Tambahin',
-      cancelButtonText: 'Tengga deh',
+      cancelButtonText: 'engga deh',
       confirmButtonColor: '#ff8fab',
       cancelButtonColor: '#999',
       allowOutsideClick: false,
